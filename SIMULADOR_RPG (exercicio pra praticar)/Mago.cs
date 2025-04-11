@@ -8,7 +8,7 @@ namespace SIMULADOR_RPG__exercicio_pra_praticar_
 {
     public class Mago : Personagem
     {
-        public Mago(string nome, double vida, double forca) : base(nome, vida, forca) 
+        public Mago(string nome, double vida, double forca, int xp) : base(nome, vida, forca, xp)
         {
             vida = 85;
             forca = 30;

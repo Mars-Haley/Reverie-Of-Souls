@@ -8,7 +8,7 @@ namespace SIMULADOR_RPG__exercicio_pra_praticar_
 {
     public class Arqueiro : Personagem
     {
-        public Arqueiro(string nome, double vida, double forca) : base(nome, vida, forca)
+        public Arqueiro(string nome, double vida, double forca, int xp) : base(nome, vida, forca, xp)
         {
             vida = 80;
             forca = 25;

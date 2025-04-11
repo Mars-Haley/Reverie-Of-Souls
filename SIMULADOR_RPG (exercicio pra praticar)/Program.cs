@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            
+            Personagem guerreiro1 = new Guerreiro("mars");
         }
     }
 }

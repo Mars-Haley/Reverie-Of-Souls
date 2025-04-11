@@ -41,7 +41,7 @@ namespace SIMULADOR_RPG__exercicio_pra_praticar_
             get { return _xp; }
             set { _xp = value; }
         }
-        public Personagem(string nome, double vida, double forca)
+        public Personagem(string nome, double vida, double forca, int xp)
         { 
             Nome = nome;
             Vida = vida;
