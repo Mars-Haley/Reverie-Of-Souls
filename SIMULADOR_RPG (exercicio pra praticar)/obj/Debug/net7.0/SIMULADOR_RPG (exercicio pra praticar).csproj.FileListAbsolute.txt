@@ -1,0 +1,15 @@
+C:\Users\christopher.oliveir\source\repos\SIMULADOR_RPG (exercicio pra praticar)\SIMULADOR_RPG (exercicio pra praticar)\bin\Debug\net7.0\SIMULADOR_RPG (exercicio pra praticar).exe
+C:\Users\christopher.oliveir\source\repos\SIMULADOR_RPG (exercicio pra praticar)\SIMULADOR_RPG (exercicio pra praticar)\bin\Debug\net7.0\SIMULADOR_RPG (exercicio pra praticar).deps.json
+C:\Users\christopher.oliveir\source\repos\SIMULADOR_RPG (exercicio pra praticar)\SIMULADOR_RPG (exercicio pra praticar)\bin\Debug\net7.0\SIMULADOR_RPG (exercicio pra praticar).runtimeconfig.json
+C:\Users\christopher.oliveir\source\repos\SIMULADOR_RPG (exercicio pra praticar)\SIMULADOR_RPG (exercicio pra praticar)\bin\Debug\net7.0\SIMULADOR_RPG (exercicio pra praticar).dll
+C:\Users\christopher.oliveir\source\repos\SIMULADOR_RPG (exercicio pra praticar)\SIMULADOR_RPG (exercicio pra praticar)\bin\Debug\net7.0\SIMULADOR_RPG (exercicio pra praticar).pdb
+C:\Users\christopher.oliveir\source\repos\SIMULADOR_RPG (exercicio pra praticar)\SIMULADOR_RPG (exercicio pra praticar)\obj\Debug\net7.0\SIMULADOR_RPG (exercicio pra praticar).csproj.AssemblyReference.cache
+C:\Users\christopher.oliveir\source\repos\SIMULADOR_RPG (exercicio pra praticar)\SIMULADOR_RPG (exercicio pra praticar)\obj\Debug\net7.0\SIMULADOR_RPG (exercicio pra praticar).GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\christopher.oliveir\source\repos\SIMULADOR_RPG (exercicio pra praticar)\SIMULADOR_RPG (exercicio pra praticar)\obj\Debug\net7.0\SIMULADOR_RPG (exercicio pra praticar).AssemblyInfoInputs.cache
+C:\Users\christopher.oliveir\source\repos\SIMULADOR_RPG (exercicio pra praticar)\SIMULADOR_RPG (exercicio pra praticar)\obj\Debug\net7.0\SIMULADOR_RPG (exercicio pra praticar).AssemblyInfo.cs
+C:\Users\christopher.oliveir\source\repos\SIMULADOR_RPG (exercicio pra praticar)\SIMULADOR_RPG (exercicio pra praticar)\obj\Debug\net7.0\SIMULADOR_RPG (exercicio pra praticar).csproj.CoreCompileInputs.cache
+C:\Users\christopher.oliveir\source\repos\SIMULADOR_RPG (exercicio pra praticar)\SIMULADOR_RPG (exercicio pra praticar)\obj\Debug\net7.0\SIMULADOR_RPG (exercicio pra praticar).dll
+C:\Users\christopher.oliveir\source\repos\SIMULADOR_RPG (exercicio pra praticar)\SIMULADOR_RPG (exercicio pra praticar)\obj\Debug\net7.0\refint\SIMULADOR_RPG (exercicio pra praticar).dll
+C:\Users\christopher.oliveir\source\repos\SIMULADOR_RPG (exercicio pra praticar)\SIMULADOR_RPG (exercicio pra praticar)\obj\Debug\net7.0\SIMULADOR_RPG (exercicio pra praticar).pdb
+C:\Users\christopher.oliveir\source\repos\SIMULADOR_RPG (exercicio pra praticar)\SIMULADOR_RPG (exercicio pra praticar)\obj\Debug\net7.0\SIMULADOR_RPG (exercicio pra praticar).genruntimeconfig.cache
+C:\Users\christopher.oliveir\source\repos\SIMULADOR_RPG (exercicio pra praticar)\SIMULADOR_RPG (exercicio pra praticar)\obj\Debug\net7.0\ref\SIMULADOR_RPG (exercicio pra praticar).dll
