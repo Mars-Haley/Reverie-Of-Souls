@@ -13,6 +13,8 @@ namespace SIMULADOR_RPG
             VidaTotal = 85;
             Vida=VidaTotal;
             ForcaBase = 20;
+            ArmaEquipada = Arsenal.Cajado;
+            Forca= ForcaBase + ArmaEquipada.BonusForca;
         }
         public override void Atacar(Personagem inimigo)
         {
