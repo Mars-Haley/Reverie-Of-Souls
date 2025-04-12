@@ -9,10 +9,10 @@ namespace SIMULADOR_RPG__exercicio_pra_praticar_
     public class Personagem : IAtaque
     {
         private string _nome;
-        private double _vida;
-        private double _forca;
-        private int _nivel;
-        private int _xp;
+        protected double _vida;
+        protected double _forca;
+        protected int _nivel;
+        protected int _xp;
         protected Random rand;
   
 
@@ -41,20 +41,25 @@ namespace SIMULADOR_RPG__exercicio_pra_praticar_
             get { return _xp; }
             set { _xp = value; }
         }
-        public Personagem(string nome, double vida, double forca, int xp)
+        public Personagem(string nome)
         { 
+            Vida = 100;
+            Forca = 30;
             Nome = nome;
-            Vida = vida;
             Nivel = 1;
-            Forca = forca;
             rand = new Random();
         }
         public virtual void Atacar(Personagem inimigo)
         {
+            Console.Clear();
             Console.WriteLine("Ataque comum");
-            double dano = rand.NextDouble() * Forca;
+            double dano = (0.5 + rand.NextDouble() * 0.5) * Forca;
             inimigo.Vida -= dano;
+            if (inimigo.Vida < 0) inimigo.Vida = 0;
             Console.WriteLine($"{Nome} causou {dano:F2} de dano em {inimigo.Nome}");
+            Console.WriteLine($"vida de {inimigo.Nome}: {inimigo.Vida:F2}");
+            
+            Console.ReadKey();
         }
     }
 }

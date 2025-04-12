@@ -8,10 +8,10 @@ namespace SIMULADOR_RPG__exercicio_pra_praticar_
 {
     public class Mago : Personagem
     {
-        public Mago(string nome, double vida, double forca, int xp) : base(nome, vida, forca, xp)
+        public Mago(string nome) : base(nome)
         {
-            vida = 85;
-            forca = 30;
+            Vida = 85;
+            Forca = 30;
         }
         public override void Atacar(Personagem inimigo)
         {
@@ -19,6 +19,10 @@ namespace SIMULADOR_RPG__exercicio_pra_praticar_
             double dano = (0.5 + rand.NextDouble() * 1.0) * Forca;
             inimigo.Vida -= dano;
             Console.WriteLine($"{Nome} deu {dano:F2} dano em {inimigo.Nome}");
+            Console.WriteLine($"vida do {inimigo.Nome}: {inimigo.Vida}");
+            if (inimigo.Vida < 0) inimigo.Vida = 0;
+            Console.ReadKey();
+
         }
     }
 }
