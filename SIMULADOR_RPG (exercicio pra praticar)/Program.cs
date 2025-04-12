@@ -7,11 +7,11 @@ namespace SIMULADOR_RPG__exercicio_pra_praticar_
         static void Main(string[] args)
         {
             Personagem guerreiro1 = new Guerreiro("mars");
-            Personagem inimigo = new Personagem("esqueleto");
+            Mago inimigo = new Mago("esqueleto");
             MenuCombate(guerreiro1, inimigo);
         }
 
-        static void MenuCombate(Personagem personagem, Personagem inimigo)
+        static void MenuCombate(Personagem personagem, Mago inimigo)
         {
             
             int option =1;
@@ -28,17 +28,17 @@ namespace SIMULADOR_RPG__exercicio_pra_praticar_
 
             for (int i = 0; i < opcoes.Length;i++)
             {
-                Console.WriteLine($"{(i+1==option ? ">" : " ")}{opcoes[i]}");
+                Console.Write($"{(i+1==option ? ">" : " ")}{opcoes[i]}     ");
             }
 
             ConsoleKeyInfo key = Console.ReadKey(true);
 
             switch(key.Key)
             {
-                case ConsoleKey.UpArrow: if (option > 1) option--;
+                case ConsoleKey.LeftArrow: if (option > 1) option--;
                 break;
 
-                case ConsoleKey.DownArrow: if (option < opcoes.Length) option++;
+                case ConsoleKey.RightArrow: if (option < opcoes.Length) option++;
                 break;
 
                 case ConsoleKey.Enter:
@@ -49,7 +49,7 @@ namespace SIMULADOR_RPG__exercicio_pra_praticar_
             }
               Selecao(personagem,inimigo,option);
         }
-        static void Selecao(Personagem personagem,Personagem inimigo,int option)
+        static void Selecao(Personagem personagem,Mago inimigo,int option)
         {
             Console.Clear();
             switch(option)

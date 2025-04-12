@@ -6,41 +6,17 @@ using System.Threading.Tasks;
 
 namespace SIMULADOR_RPG__exercicio_pra_praticar_
 {
-    public class Personagem : IAtaque
+    public abstract class Personagem : IAtaque
     {
-        private string _nome;
-        protected double _vida;
-        protected double _forca;
-        protected int _nivel;
-        protected int _xp;
+        public string Nome{get; set;}
+        public double Vida{get; set;}
+        public double Forca{get;set;}
+        public int Nivel{get;set;}
+        public int Xp{get;set;}
         protected Random rand;
   
 
-        public string Nome{
-            get { return _nome; }
-            set { _nome = value; }
-        }
-
-        public double Vida { 
-            get { return _vida; }
-            set { _vida = value; }
-        
-        }
-        public double Forca
-        {
-            get { return _forca; }
-            set { _forca = value; }
-        }
-        public int Nivel
-        {
-            get { return _nivel; }
-            set { _nivel = value; }
-        }
-        public int Xp
-        {
-            get { return _xp; }
-            set { _xp = value; }
-        }
+       
         public Personagem(string nome)
         { 
             Vida = 100;
@@ -49,17 +25,35 @@ namespace SIMULADOR_RPG__exercicio_pra_praticar_
             Nivel = 1;
             rand = new Random();
         }
-        public virtual void Atacar(Personagem inimigo)
+        public static void Digitar(string texto, int velocidade = 20)
         {
-            Console.Clear();
-            Console.WriteLine("Ataque comum");
-            double dano = (0.5 + rand.NextDouble() * 0.5) * Forca;
-            inimigo.Vida -= dano;
-            if (inimigo.Vida < 0) inimigo.Vida = 0;
-            Console.WriteLine($"{Nome} causou {dano:F2} de dano em {inimigo.Nome}");
-            Console.WriteLine($"vida de {inimigo.Nome}: {inimigo.Vida:F2}");
-            
-            Console.ReadKey();
+            foreach (char c in texto)
+        {
+            Console.Write(c);
+            Thread.Sleep(velocidade); // milissegundos entre letras
         }
+        Console.WriteLine();
+        }
+        
+        public void ReceberDano(double dano)
+        {
+            Vida -=dano;
+        }
+    protected void MostrarDano(double dano, Personagem inimigo)
+    {
+        Console.Clear();
+        if(inimigo.Vida < 0) inimigo.Vida =0;
+        if(inimigo.Vida == 0) {
+            Digitar($"{Nome} finaliza {inimigo.Nome} com {dano:F2} de dano!");
+            Digitar($"{inimigo.Nome} morreu!");
+            }
+        else {
+            Digitar($"{Nome} ataca causando {dano:F2} de dano!");
+            Digitar($"vida de {inimigo.Nome}: {inimigo.Vida:F2}");
+        }
+        
+    }
+
+        public abstract void Atacar(Personagem inimigo);
     }
 }

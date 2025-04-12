@@ -19,12 +19,8 @@ namespace SIMULADOR_RPG__exercicio_pra_praticar_
             double r = rand.NextDouble();
             double fator = Math.Sqrt(r);
             double dano = (0.6 + fator * 0.4) * Forca ;
-            inimigo.Vida -=dano;
-            if (inimigo.Vida < 0) inimigo.Vida = 0;
-            Console.WriteLine("Ataque com flechas");
-            Console.WriteLine($"{Nome} deu {dano:F2} dano em {inimigo.Nome}");
-            Console.WriteLine($"vida do inimigo: {inimigo.Vida:F2}");
-            
+            inimigo.ReceberDano(dano);
+            MostrarDano(dano,inimigo);
             Console.ReadKey();
 
         }
