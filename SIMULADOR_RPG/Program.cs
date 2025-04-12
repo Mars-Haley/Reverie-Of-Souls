@@ -1,4 +1,5 @@
-﻿using System.Runtime.InteropServices;
+﻿using System.Runtime.ConstrainedExecution;
+using System.Runtime.InteropServices;
 
 namespace SIMULADOR_RPG
 {
@@ -6,12 +7,12 @@ namespace SIMULADOR_RPG
     {
         static void Main(string[] args)
         {
-            Personagem guerreiro1 = new Guerreiro("mars");
-            Mago inimigo = new Mago("esqueleto");
+            Personagem guerreiro1 = new Guerreiro("Mars");
+            Inimigo inimigo = FabricaInimigos.Criar(TipoInimigo.Esqueleto);
             MenuCombate(guerreiro1, inimigo);
         }
 
-        static void MenuCombate(Personagem personagem, Mago inimigo)
+        static void MenuCombate(Personagem personagem, Inimigo inimigo)
         {
             
             int option =1;
@@ -50,7 +51,7 @@ namespace SIMULADOR_RPG
             }
               Selecao(personagem,inimigo,option);
         }
-        static void Selecao(Personagem personagem,Mago inimigo,int option)
+        static void Selecao(Personagem personagem,Inimigo inimigo,int option)
         {
             Console.Clear();
             switch(option)
@@ -62,6 +63,12 @@ namespace SIMULADOR_RPG
                 inimigo.Atacar(personagem);
                 MenuCombate(personagem, inimigo);
                 }
+                break;
+                case 2:
+                inimigo.ExibirInfo();
+                Personagem.Digitar(inimigo.Descricao,40);
+                Console.ReadKey();
+                MenuCombate(personagem,inimigo);
                 break;
             }
         }

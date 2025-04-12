@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
-namespace SIMULADOR_RPG__exercicio_pra_praticar_
+namespace SIMULADOR_RPG
 {
     public abstract class Personagem : IAtaque
     {
@@ -16,6 +17,7 @@ namespace SIMULADOR_RPG__exercicio_pra_praticar_
         public int Nivel{get;set;}
         public int Xp{get;set;}
         public double Mana{get;set;}
+        public Arma ArmaEquipada{get;set;}
         protected Random rand;
   
 
@@ -48,21 +50,32 @@ namespace SIMULADOR_RPG__exercicio_pra_praticar_
         {
             Vida -=dano;
         }
-    protected void MostrarDano(double dano, Personagem inimigo)
+    protected void MostrarDanoFormatado(double dano, Personagem topo, Personagem baixo, string mensagem)
     {
         Console.Clear();
-        if(inimigo.Vida < 1) inimigo.Vida =0;
+        if (topo.Vida <1) topo.Vida = 0;
 
-        if(inimigo.Vida == 0) {
-            Digitar($"{Nome} finaliza {inimigo.Nome} com {dano:F0} de dano!");
-            Digitar($"{inimigo.Nome} morreu!");
-            }
-        else {
-            Digitar($"{Nome} ataca causando {dano:F0} de dano!");
-            Digitar($"{inimigo.Nome}: {inimigo.Vida:F0}/{inimigo.VidaTotal}HP");
+        topo.ExibirInfo();
+        int linhaDoTexto = Console.CursorTop;
+
+        Console.SetCursorPosition(0, linhaDoTexto);
+
+        if (topo.Vida == 0)
+        {
+            Digitar($"{Nome} finaliza {topo.Nome} com {dano:F0} de dano!");
+            Digitar($"{topo.Nome} morreu!");
         }
-        
+        else
+        {
+            baixo.ExibirInfo();
+            Console.SetCursorPosition(0, linhaDoTexto);
+            Digitar(mensagem);
+        }
     }
+    protected virtual void MostrarDano(double dano, Personagem inimigo)
+    {
+        MostrarDanoFormatado(dano, inimigo, this, $"{Nome} ataca {inimigo.Nome} com {ArmaEquipada.Nome} causando {dano:F0} de dano!");
+    }   
 
         public abstract void Atacar(Personagem inimigo);
     }
