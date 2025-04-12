@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "FBhuIoqhI1c=",
+  "success": true,
+  "projectFilePath": "/home/marshaley/RPG-estudo/SIMULADOR_RPG/SIMULADOR_RPG (exercicio pra praticar).csproj",
+  "expectedPackageFiles": [
+    "/home/marshaley/.nuget/packages/microsoft.aspnetcore.app.ref/7.0.20/microsoft.aspnetcore.app.ref.7.0.20.nupkg.sha512",
+    "/home/marshaley/.nuget/packages/microsoft.netcore.app.host.linux-x64/7.0.20/microsoft.netcore.app.host.linux-x64.7.0.20.nupkg.sha512"
+  ],
+  "logs": []
+}

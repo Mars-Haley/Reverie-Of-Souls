@@ -1,0 +1,77 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/marshaley/RPG-estudo/SIMULADOR_RPG/SIMULADOR_RPG (exercicio pra praticar).csproj": {}
+  },
+  "projects": {
+    "/home/marshaley/RPG-estudo/SIMULADOR_RPG/SIMULADOR_RPG (exercicio pra praticar).csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/marshaley/RPG-estudo/SIMULADOR_RPG/SIMULADOR_RPG (exercicio pra praticar).csproj",
+        "projectName": "SIMULADOR_RPG (exercicio pra praticar)",
+        "projectPath": "/home/marshaley/RPG-estudo/SIMULADOR_RPG/SIMULADOR_RPG (exercicio pra praticar).csproj",
+        "packagesPath": "/home/marshaley/.nuget/packages/",
+        "outputPath": "/home/marshaley/RPG-estudo/SIMULADOR_RPG/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/marshaley/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[7.0.20, 7.0.20]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.linux-x64",
+              "version": "[7.0.20, 7.0.20]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.104/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
