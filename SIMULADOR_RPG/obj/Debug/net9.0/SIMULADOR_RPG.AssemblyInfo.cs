@@ -10,12 +10,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("SIMULADOR_RPG (exercicio pra praticar)")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("SIMULADOR_RPG")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a7a7a7aff31d6b1fdc93570a2c974f51c0e8b4c8")]
-[assembly: System.Reflection.AssemblyProductAttribute("SIMULADOR_RPG (exercicio pra praticar)")]
-[assembly: System.Reflection.AssemblyTitleAttribute("SIMULADOR_RPG (exercicio pra praticar)")]
+[assembly: System.Reflection.AssemblyProductAttribute("SIMULADOR_RPG")]
+[assembly: System.Reflection.AssemblyTitleAttribute("SIMULADOR_RPG")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // Gerado pela classe WriteCodeFragment do MSBuild.

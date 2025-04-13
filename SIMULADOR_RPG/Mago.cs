@@ -18,7 +18,7 @@ namespace SIMULADOR_RPG
         }
         public override void Atacar(Personagem inimigo)
         {
-            double dano = (0.5 + rand.NextDouble() * 1.0) * Forca;
+            double dano = (0.6 + rand.NextDouble() * 1.0) * Forca;
             inimigo.ReceberDano(dano);
             MostrarDano(dano,inimigo);
             Console.ReadKey();

@@ -1,11 +1,11 @@
 {
   "version": 3,
   "targets": {
-    "net7.0": {}
+    "net9.0": {}
   },
   "libraries": {},
   "projectFileDependencyGroups": {
-    "net7.0": []
+    "net9.0": []
   },
   "packageFolders": {
     "/home/marshaley/.nuget/packages/": {}
@@ -13,9 +13,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/marshaley/RPG-estudo/SIMULADOR_RPG/SIMULADOR_RPG (exercicio pra praticar).csproj",
-      "projectName": "SIMULADOR_RPG (exercicio pra praticar)",
-      "projectPath": "/home/marshaley/RPG-estudo/SIMULADOR_RPG/SIMULADOR_RPG (exercicio pra praticar).csproj",
+      "projectUniqueName": "/home/marshaley/RPG-estudo/SIMULADOR_RPG/SIMULADOR_RPG.csproj",
+      "projectName": "SIMULADOR_RPG",
+      "projectPath": "/home/marshaley/RPG-estudo/SIMULADOR_RPG/SIMULADOR_RPG.csproj",
       "packagesPath": "/home/marshaley/.nuget/packages/",
       "outputPath": "/home/marshaley/RPG-estudo/SIMULADOR_RPG/obj/",
       "projectStyle": "PackageReference",
@@ -23,14 +23,14 @@
         "/home/marshaley/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
-        "net7.0"
+        "net9.0"
       ],
       "sources": {
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
+        "net9.0": {
+          "targetAlias": "net9.0",
           "projectReferences": {}
         }
       },
@@ -47,8 +47,8 @@
       "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
-      "net7.0": {
-        "targetAlias": "net7.0",
+      "net9.0": {
+        "targetAlias": "net9.0",
         "imports": [
           "net461",
           "net462",
@@ -63,11 +63,7 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[7.0.20, 7.0.20]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Host.linux-x64",
-            "version": "[7.0.20, 7.0.20]"
+            "version": "[9.0.3, 9.0.3]"
           }
         ],
         "frameworkReferences": {
@@ -75,7 +71,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.104/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.104/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

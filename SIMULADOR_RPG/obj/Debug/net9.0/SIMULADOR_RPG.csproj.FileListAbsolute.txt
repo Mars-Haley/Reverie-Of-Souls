@@ -1,0 +1,15 @@
+/home/marshaley/RPG-estudo/SIMULADOR_RPG/bin/Debug/net9.0/SIMULADOR_RPG
+/home/marshaley/RPG-estudo/SIMULADOR_RPG/bin/Debug/net9.0/SIMULADOR_RPG.deps.json
+/home/marshaley/RPG-estudo/SIMULADOR_RPG/bin/Debug/net9.0/SIMULADOR_RPG.runtimeconfig.json
+/home/marshaley/RPG-estudo/SIMULADOR_RPG/bin/Debug/net9.0/SIMULADOR_RPG.dll
+/home/marshaley/RPG-estudo/SIMULADOR_RPG/bin/Debug/net9.0/SIMULADOR_RPG.pdb
+/home/marshaley/RPG-estudo/SIMULADOR_RPG/obj/Debug/net9.0/SIMULADOR_RPG.GeneratedMSBuildEditorConfig.editorconfig
+/home/marshaley/RPG-estudo/SIMULADOR_RPG/obj/Debug/net9.0/SIMULADOR_RPG.AssemblyInfoInputs.cache
+/home/marshaley/RPG-estudo/SIMULADOR_RPG/obj/Debug/net9.0/SIMULADOR_RPG.AssemblyInfo.cs
+/home/marshaley/RPG-estudo/SIMULADOR_RPG/obj/Debug/net9.0/SIMULADOR_RPG.csproj.CoreCompileInputs.cache
+/home/marshaley/RPG-estudo/SIMULADOR_RPG/obj/Debug/net9.0/SIMULADOR_RPG.sourcelink.json
+/home/marshaley/RPG-estudo/SIMULADOR_RPG/obj/Debug/net9.0/SIMULADOR_RPG.dll
+/home/marshaley/RPG-estudo/SIMULADOR_RPG/obj/Debug/net9.0/refint/SIMULADOR_RPG.dll
+/home/marshaley/RPG-estudo/SIMULADOR_RPG/obj/Debug/net9.0/SIMULADOR_RPG.pdb
+/home/marshaley/RPG-estudo/SIMULADOR_RPG/obj/Debug/net9.0/SIMULADOR_RPG.genruntimeconfig.cache
+/home/marshaley/RPG-estudo/SIMULADOR_RPG/obj/Debug/net9.0/ref/SIMULADOR_RPG.dll
