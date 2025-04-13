@@ -12,21 +12,29 @@ namespace SIMULADOR_RPG
             Descricao = descricao;
             
         }
+        public override void ExibirInfo()
+        {
+            Console.WriteLine("");
+            Console.WriteLine($"{Nome} {Vida:F0}/{VidaTotal}HP | Nível: {Nivel}");
+            Console.WriteLine("\n");
 
-    protected override void MostrarDano(double dano, Personagem inimigo)
-    {
-        MostrarDanoFormatado(dano, this, inimigo, $"{Nome} ataca {inimigo.Nome} causando {dano:F0} de dano!");
 
-    }
+        }
+
+        protected override void MostrarDano(double dano, Personagem alvo)
+        {
+            MostrarDanoFormatado(dano, this, alvo, $"{Nome} ataca {alvo.Nome} com {ArmaEquipada.Nome} causando {dano:F0} de dano!");
+
+        }
 
         public override void Atacar(Personagem alvo)
         {
             double dano = (0.6 + rand.NextDouble() * 0.4) * Forca * Nivel;
             alvo.ReceberDano(dano);
             MostrarDano(dano,alvo);
-            Console.ReadKey();
+            if (alvo.Vida <= 0) Console.ReadKey();
 
-    }
+        }
 
 }
 }
