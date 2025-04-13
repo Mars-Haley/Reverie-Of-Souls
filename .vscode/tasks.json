@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/SIMULADOR_RPG (exercicio pra praticar)/SIMULADOR_RPG (exercicio pra praticar).csproj",
+                "${workspaceFolder}/SIMULADOR_RPG/SIMULADOR_RPG.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary;ForceNoAlign"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/SIMULADOR_RPG (exercicio pra praticar)/SIMULADOR_RPG (exercicio pra praticar).csproj",
+                "${workspaceFolder}/SIMULADOR_RPG/SIMULADOR_RPG.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary;ForceNoAlign"
             ],
@@ -33,7 +33,7 @@
                 "watch",
                 "run",
                 "--project",
-                "${workspaceFolder}/SIMULADOR_RPG (exercicio pra praticar)/SIMULADOR_RPG (exercicio pra praticar).csproj"
+                "${workspaceFolder}/SIMULADOR_RPG/SIMULADOR_RPG.csproj"
             ],
             "problemMatcher": "$msCompile"
         }

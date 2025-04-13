@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SIMULADOR_RPG")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ae49f8c4c263367a03020d3ad03f7f0087dbdd41")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+29f287d307d099b9a9c7fbbaf3259178786d5236")]
 [assembly: System.Reflection.AssemblyProductAttribute("SIMULADOR_RPG")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SIMULADOR_RPG")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -24,6 +24,7 @@ namespace SIMULADOR_RPG
         protected override void MostrarDano(double dano, Personagem alvo)
         {
             MostrarDanoFormatado(dano, this, alvo, $"{Nome} ataca {alvo.Nome} com {ArmaEquipada.Nome} causando {dano:F0} de dano!");
+            Console.ReadKey();
 
         }
 
