@@ -19,6 +19,7 @@ namespace SIMULADOR_RPG
         public double XpTotal{get;set;}
         public double Mana{get;set;}
         public Arma ArmaEquipada{get;set;}
+
         protected Random rand;
   
 
@@ -50,6 +51,41 @@ namespace SIMULADOR_RPG
         public void ReceberDano(double dano)
         {
             Vida -=dano;
+        }
+        protected void MostrarDanoFormatado(double dano, Personagem topo, Personagem baixo, string mensagem)
+        {
+            Console.Clear();
+            if (topo.Vida < 1) topo.Vida = 0;
+            if (baixo.Vida < 1) baixo.Vida = 0;
+
+            topo.ExibirInfo();
+            int linhaDoTexto = Console.CursorTop;
+
+            Console.SetCursorPosition(0, linhaDoTexto);
+            //fim do combate:
+            if (baixo.Vida == 0)
+            {
+                Digitar($"{topo.Nome} finaliza {baixo.Nome} com {dano:F0} de dano!");
+                Digitar($"{baixo.Nome} morreu!");
+            }
+            else if (topo.Vida == 0)
+            {
+                Digitar($"{baixo.Nome} finaliza {topo.Nome} com {dano:F0} de dano!");
+                Digitar($"{topo.Nome} morreu!");
+                Resultados(topo);
+            }
+
+            //combate ainda ocorrendo:
+            else
+            {
+                baixo.ExibirInfo();
+                Console.SetCursorPosition(0, linhaDoTexto);
+                Digitar(mensagem);
+            }
+        }
+        protected virtual void MostrarDano(double dano, Personagem inimigo)
+        {
+            MostrarDanoFormatado(dano, inimigo, this, $"{Nome} ataca {inimigo.Nome} com {ArmaEquipada.Nome} causando {dano:F0} de dano!");
         }
         protected void Resultados(Personagem inimigo)
         {
@@ -130,41 +166,7 @@ namespace SIMULADOR_RPG
             }
 
             
-            protected void MostrarDanoFormatado(double dano, Personagem topo, Personagem baixo, string mensagem)
-            {
-                Console.Clear();
-                if (topo.Vida <1) topo.Vida = 0;
-                if (baixo.Vida <1) baixo.Vida =0;
-
-                topo.ExibirInfo();
-                int linhaDoTexto = Console.CursorTop;
-
-                Console.SetCursorPosition(0, linhaDoTexto);
-                //fim do combate:
-                if (baixo.Vida == 0)
-                {
-                    Digitar($"{topo.Nome} finaliza {baixo.Nome} com {dano:F0} de dano!");
-                    Digitar($"{baixo.Nome} morreu!");
-                }
-            else if (topo.Vida == 0)
-                {
-                    Digitar($"{baixo.Nome} finaliza {topo.Nome} com {dano:F0} de dano!");
-                    Digitar($"{topo.Nome} morreu!");
-                    Resultados(topo);
-                }
-                
-                //combate ainda ocorrendo:
-                else
-                {
-                    baixo.ExibirInfo();
-                    Console.SetCursorPosition(0, linhaDoTexto);
-                    Digitar(mensagem);
-                }
-            }
-            protected virtual void MostrarDano(double dano, Personagem inimigo)
-            {
-                MostrarDanoFormatado(dano, inimigo, this, $"{Nome} ataca {inimigo.Nome} com {ArmaEquipada.Nome} causando {dano:F0} de dano!");
-            }   
+           
 
             public abstract void Atacar(Personagem inimigo);
         }
