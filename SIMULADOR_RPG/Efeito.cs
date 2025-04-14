@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace SIMULADOR_RPG
 {
-    public class Efeito : IEfeito
+    public abstract class Efeito : IEfeito
     {
-        public virtual void Aplicar(Personagem alvo)
-        {
-            
-        }
+        public abstract void Aplicar(Personagem alvo);
     }
 }

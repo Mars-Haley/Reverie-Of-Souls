@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -31,6 +32,11 @@ namespace SIMULADOR_RPG
             rand = new Random();
             Xp = 0;
             XpTotal = 10;
+        }
+
+        public void Curar(double modificador)
+        {
+            Vida = Math.Min(Vida + modificador, VidaTotal);
         }
         public static void Digitar(string texto, int velocidade = 20)
         {
