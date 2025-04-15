@@ -1,0 +1,6 @@
+# Diretórios de build e configuração locais
+.vs/
+.vscode/
+SIMULADOR_RPG/bin/
+SIMULADOR_RPG/obj/
+
