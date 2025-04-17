@@ -14,27 +14,10 @@ namespace SIMULADOR_RPG
         // ========== CRIAÇÃO DO PERSONAGEM ==========
         static void CriacaoPersonagem(List<Personagem> personagens)
         {
-            int option = 1;
-            bool selecionado = false;
 
-            while (!selecionado)
-            {
-                Console.Clear();
-                Console.WriteLine("Escolha sua classe:");
-
-                string[] opcoes = { "Guerreiro", "Mago", "Arqueiro" };
-
-                for (int i = 0; i < opcoes.Length; i++)
-                    Console.WriteLine($"{(i + 1 == option ? ">" : " ")}{opcoes[i]}");
-
-                ConsoleKeyInfo key = Console.ReadKey(true);
-                switch (key.Key)
-                {
-                    case ConsoleKey.UpArrow: if (option > 1) option--; break;
-                    case ConsoleKey.DownArrow: if (option < opcoes.Length) option++; break;
-                    case ConsoleKey.Enter: selecionado = true; break;
-                }
-            }
+            string[] opcoes = { "Guerreiro", "Mago", "Arqueiro" };
+            int option = Menu("Escolha sua classe: ", opcoes);
+            
 
             SelecaoClasse(option, personagens);
         }
@@ -65,6 +48,28 @@ namespace SIMULADOR_RPG
             personagens.Add(personagem);
             Instanciar(personagem);
         }
+        static int Menu(string titulo,string[] opcoes)
+        {
+            bool selecionado = false;
+            int option = 1;
+            while(!selecionado){
+            Console.Clear();
+            Console.WriteLine(titulo);
+            for (int i= 0; i < opcoes.Length;i++)
+                Console.WriteLine($"{(i+1 == option ? ">" : " ")}{opcoes[i]}");
+
+                ConsoleKeyInfo key = Console.ReadKey(true);
+                switch (key.Key)
+                {
+                    case ConsoleKey.UpArrow: if (option > 1) option--; break;
+                    case ConsoleKey.DownArrow: if (option < opcoes.Length) option++; break;
+                    case ConsoleKey.Enter: selecionado = true; break;
+                }
+            }
+
+            return option;
+        }
+
 
         // ========== INÍCIO DO COMBATE ==========
         static void Instanciar(Personagem personagem)
@@ -127,6 +132,15 @@ namespace SIMULADOR_RPG
                 // Futuras opções:
                 // case 3: Usar item...
                 // case 4: Usar skill...
+                case 4:
+                foreach(var Magia in personagem.Magias)
+                {
+                    
+                    Personagem.Digitar(Magia.Nome);
+                    Console.ReadKey();
+                    Magia.Usar(personagem);
+                }
+                break;
             }
 
             if (personagem.Vida > 0 && inimigo.Vida > 0)

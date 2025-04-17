@@ -11,15 +11,21 @@ public enum TipoInimigo
 
 public static class FabricaInimigos
 {
+
+    private static readonly Dictionary<TipoInimigo, Func<Inimigo>> _inimigos = 
+    new Dictionary<TipoInimigo, Func<Inimigo>>()
+    {
+        {TipoInimigo.Esqueleto, () => new Inimigo("Esqueleto",13,50,$"Parece já ter sido um aventureiro como eu\nEspero que eu não tenha o mesmo destino")},
+        {TipoInimigo.Bandido,() => new Inimigo ("Bandido", 20,60,"Um safado que fez o L")},
+        {TipoInimigo.Anão, () => new Inimigo("Anão",30,45,"Asim")},
+        {TipoInimigo.Slime, () => new Inimigo("Slime",20,20,"")}
+    };
+
     public static Inimigo Criar(TipoInimigo tipo)
     {
-        switch(tipo)
-        {
-            case TipoInimigo.Esqueleto: return new Inimigo("Esqueleto",13,50,$"Parece já ter sido um aventureiro como eu\nEspero que eu não tenha o mesmo destino");
-            case TipoInimigo.Bandido: return new Inimigo("Bandido",20,60,"");
-            case TipoInimigo.Anão: return new Inimigo("Anão",30,45,"");
-            case TipoInimigo.Slime: return new Inimigo("Slime",20,20,"");
-            default:throw new ArgumentException("Tipo de inimigo inválido");
-        }
+        if (_inimigos.TryGetValue(tipo, out var construtor))
+            return construtor();
+        else 
+            throw new ArgumentException("Tipo de inimigo inválido.");
     }
 }

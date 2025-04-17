@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SIMULADOR_RPG.Magias
 {
-    internal class Magia
+    public class Magia
     {
         public string Nome { get; }
         public List<IEfeito> Efeitos { get; }

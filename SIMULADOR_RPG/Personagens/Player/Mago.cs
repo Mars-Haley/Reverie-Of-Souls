@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SIMULADOR_RPG.Fabricas;
 
 namespace SIMULADOR_RPG
 {
@@ -15,6 +16,8 @@ namespace SIMULADOR_RPG
             ForcaBase = 15;
             ArmaEquipada = Arsenal.Cajado;
             Forca= ForcaBase + ArmaEquipada.BonusForca;
+            Magias.Add(FabricaMagias.Criar(TipoMagia.Cura));
+            
         }
         public override void Atacar(Personagem inimigo)
         {

@@ -5,6 +5,7 @@ using System.Net.Mail;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using SIMULADOR_RPG.Magias;
 
 namespace SIMULADOR_RPG
 {
@@ -21,6 +22,7 @@ namespace SIMULADOR_RPG
         public double Mana{get;set;}
         public Arma ArmaEquipada{get;set;}
 
+        public List<Magia> Magias{get;set;} = new List<Magia>();
         protected Random rand;
   
 

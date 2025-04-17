@@ -10,9 +10,9 @@ namespace SIMULADOR_RPG.Fabricas
     public enum TipoMagia
     {
         Cura,
-        Buff,
-        DanoDireto,
-        DanoContinuo
+        BuffForca,
+        Chamas,
+        Veneno
     
     }
 
@@ -23,6 +23,14 @@ namespace SIMULADOR_RPG.Fabricas
             {
                 {TipoMagia.Cura,() => new Magia("Cura", new List<IEfeito>{new Cura(30)}) }
             };
+    public static Magia Criar(TipoMagia tipo)
+    {
+        if (_magias.TryGetValue(tipo, out var construtor))
+        return construtor();
 
+        else
+        throw new ArgumentException("Tipo de magia invalido");
     }
+    }
+
 }
