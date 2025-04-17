@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using SIMULADOR_RPG.Magias;
 
 namespace SIMULADOR_RPG
 {
@@ -11,11 +12,12 @@ namespace SIMULADOR_RPG
             CriacaoPersonagem(personagens);
         }
 
-        // ========== CRIAÇÃO DO PERSONAGEM ==========
+        
+        #region CRIAÇÃO DO PERSONAGEM
         static void CriacaoPersonagem(List<Personagem> personagens)
         {
 
-            string[] opcoes = { "Guerreiro", "Mago", "Arqueiro" };
+            List<string> opcoes = new List<string>{ "Guerreiro", "Mago", "Arqueiro" };
             int option = Menu("Escolha sua classe: ", opcoes);
             
 
@@ -48,30 +50,30 @@ namespace SIMULADOR_RPG
             personagens.Add(personagem);
             Instanciar(personagem);
         }
-        static int Menu(string titulo,string[] opcoes)
+        static int Menu(string titulo,List<string> opcoes)
         {
             bool selecionado = false;
             int option = 1;
             while(!selecionado){
             Console.Clear();
             Console.WriteLine(titulo);
-            for (int i= 0; i < opcoes.Length;i++)
+            for (int i= 0; i < opcoes.Count;i++)
                 Console.WriteLine($"{(i+1 == option ? ">" : " ")}{opcoes[i]}");
 
                 ConsoleKeyInfo key = Console.ReadKey(true);
                 switch (key.Key)
                 {
                     case ConsoleKey.UpArrow: if (option > 1) option--; break;
-                    case ConsoleKey.DownArrow: if (option < opcoes.Length) option++; break;
+                    case ConsoleKey.DownArrow: if (option < opcoes.Count) option++; break;
                     case ConsoleKey.Enter: selecionado = true; break;
                 }
             }
 
             return option;
         }
+        #endregion
 
-
-        // ========== INÍCIO DO COMBATE ==========
+        #region INÍCIO DO COMBATE
         static void Instanciar(Personagem personagem)
         {
             Inimigo inimigo = FabricaInimigos.Criar(TipoInimigo.Esqueleto);
@@ -107,8 +109,9 @@ namespace SIMULADOR_RPG
             SelecaoCombate(personagem, inimigo, option);
             if (inimigo.Vida == 0 && personagem.Vida > 0) Instanciar(personagem);
         }
+        #endregion
 
-        // ========== AÇÕES DO COMBATE ==========
+        #region AÇÕES DO COMBATE
         static void SelecaoCombate(Personagem personagem, Inimigo inimigo, int option)
         {
             Console.Clear();
@@ -133,18 +136,32 @@ namespace SIMULADOR_RPG
                 // case 3: Usar item...
                 // case 4: Usar skill...
                 case 4:
+                List<string> nomeMagias = new List<string>();
+                
+
                 foreach(var Magia in personagem.Magias)
                 {
-                    
-                    Personagem.Digitar(Magia.Nome);
-                    Console.ReadKey();
-                    Magia.Usar(personagem);
+                    nomeMagias.Add(Magia.Nome);
                 }
+                option = Menu("Magias: ", nomeMagias);
+                
+                SelecaoMagia(option, personagem.Magias,personagem);
+                inimigo.Atacar(personagem);
                 break;
             }
+           
 
             if (personagem.Vida > 0 && inimigo.Vida > 0)
                 MenuCombate(personagem, inimigo);
         }
+
+        static void SelecaoMagia(int option, List<Magia> magias, Personagem alvo)
+        {
+            Magia magiaSelecionada = magias[option-1];
+            magiaSelecionada.Usar(alvo);
+            return;
+        }
+        
+        #endregion
     }
 }

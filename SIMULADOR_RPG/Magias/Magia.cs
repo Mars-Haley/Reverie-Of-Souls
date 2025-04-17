@@ -22,7 +22,10 @@ namespace SIMULADOR_RPG.Magias
             foreach (var efeito in Efeitos) 
             {
                 efeito.Aplicar(alvo);
+               
             }
+            Personagem.Digitar($"A magia {Nome} foi aplicada em {alvo.Nome}");
+            Console.ReadKey();
 
         }
     }
