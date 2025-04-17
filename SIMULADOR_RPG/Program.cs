@@ -134,7 +134,7 @@ namespace SIMULADOR_RPG
 
                 // Futuras opções:
                 // case 3: Usar item...
-                // case 4: Usar skill...
+                
                 case 4:
                 List<string> nomeMagias = new List<string>();
                 
