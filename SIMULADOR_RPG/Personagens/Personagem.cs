@@ -21,8 +21,8 @@ namespace SIMULADOR_RPG
         public double XpTotal{get;set;}
         public double Mana{get;set;}
         public Arma ArmaEquipada{get;set;}
-
         public List<Magia> Magias{get;set;} = new List<Magia>();
+        public List<Item> Itens{get;set;} = new List<Item>();
         protected Random rand;
   
 

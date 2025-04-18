@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace SIMULADOR_RPG
 {
-    public class Chama : Efeito
+    public class DanoDireto : Efeito
     {
         public double Modificador{get;}
-        public Chama(double modificador)
+        public DanoDireto(double modificador)
         {
             Modificador = modificador;
         }

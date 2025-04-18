@@ -17,6 +17,7 @@ namespace SIMULADOR_RPG
         {
             alvo.Curar(Modificador);
         }
+        
 
 
 

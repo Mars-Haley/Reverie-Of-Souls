@@ -129,11 +129,25 @@ namespace SIMULADOR_RPG
                 case 2:
                     inimigo.ExibirInfo();
                     Personagem.Digitar(inimigo.Descricao, 40);
+                    inimigo.Atacar(personagem);
                     Console.ReadKey();
                     break;
 
-                // Futuras opções:
-                // case 3: Usar item...
+                case 3: 
+                List<string> nomeItens = new List<string>();
+                
+                foreach(var Item in personagem.Itens)
+                {
+                    nomeItens.Add(Item.Nome);
+                }
+                option = Menu("Itens: ",nomeItens);
+                Item itemSelecionado = personagem.Itens[option-1];
+                if (itemSelecionado.AlvoEhInimigo) UsoItem(itemSelecionado,inimigo,personagem);
+                else UsoItem(itemSelecionado, personagem,personagem);
+                inimigo.Atacar(personagem);
+                break;
+
+                
                 case 4:
                 List<string> nomeMagias = new List<string>();
                 
@@ -144,8 +158,8 @@ namespace SIMULADOR_RPG
                 }
                 option = Menu("Magias: ", nomeMagias);
                 Magia magiaSelecionada = personagem.Magias[option-1];
-                if (magiaSelecionada.AlvoEhInimigo) SelecaoMagia(magiaSelecionada,inimigo);
-                else SelecaoMagia(magiaSelecionada, personagem);
+                if (magiaSelecionada.AlvoEhInimigo) UsoMagia(magiaSelecionada,inimigo, personagem);
+                else UsoMagia(magiaSelecionada, personagem, personagem);
                 inimigo.Atacar(personagem);
                 break;
             }
@@ -155,10 +169,13 @@ namespace SIMULADOR_RPG
                 MenuCombate(personagem, inimigo);
         }
 
-        static void SelecaoMagia(Magia magiaSelecionada, Personagem alvo)
+        static void UsoMagia(Magia magiaSelecionada, Personagem alvo, Personagem usuario)
         {
-            magiaSelecionada.Usar(alvo);
-            return;
+            magiaSelecionada.Usar(usuario,alvo);
+        }
+        static void UsoItem(Item itemSelecionado, Personagem alvo, Personagem usuario)
+        {
+            itemSelecionado.Usar(usuario, alvo);
         }
         
         #endregion

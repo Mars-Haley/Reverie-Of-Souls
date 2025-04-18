@@ -19,14 +19,13 @@ namespace SIMULADOR_RPG.Magias
             AlvoEhInimigo = alvoEhInimigo;
         }
 
-        public void Usar(Personagem alvo) 
+        public void Usar(Personagem usuario,Personagem alvo) 
         {
             foreach (var efeito in Efeitos) 
             {
                 efeito.Aplicar(alvo);
-               
             }
-            Personagem.Digitar($"A magia {Nome} foi aplicada em {alvo.Nome}");
+            Personagem.Digitar($"{usuario.Nome} usou a magia {Nome}");
             Console.ReadKey();
 
         }

@@ -10,7 +10,7 @@ namespace SIMULADOR_RPG
             VidaTotal=vida;
             Vida=VidaTotal;
             Descricao = descricao;
-            
+            Itens.Add(FabricaItens.Criar(TipoItem.PocaoCura)); 
         }
         public override void ExibirInfo()
         {
@@ -30,12 +30,60 @@ namespace SIMULADOR_RPG
 
         public override void Atacar(Personagem alvo)
         {
+            int chance = rand.Next(1,3);
+            if(EstaDesesperado() && chance ==2 )
+            {
+                AcoesDesesperado(alvo);
+            }
+            else
+            {
             double dano = (0.6 + rand.NextDouble() * 0.4) * Forca * Nivel;
             alvo.ReceberDano(dano);
             MostrarDano(dano,alvo);
             if (alvo.Vida <= 0) Console.ReadKey();
-
+            }
+        }
+        
+        public void AcoesDesesperado(Personagem alvo)
+        {
+            int chance = rand.Next(1,4);
+            Console.Clear();
+            Console.WriteLine($"{Nome} está desesperado!");
+            Console.ReadKey();
+            switch(chance)
+            {
+               case 1:
+                   foreach (var Item in Itens)
+                   {
+                   Item.Usar(this, this);
+                   }
+                   break;
+                case 2:
+                   Desarmar(alvo);
+                   break;
+                case 3:
+                   AtacarDesesperado(alvo);
+                   break;
+            }
+        }
+        public void AtacarDesesperado(Personagem alvo)
+        {
+            double dano = (0.9 + rand.NextDouble() * 0.5) * Forca * Nivel;
+            alvo.ReceberDano(dano);
+            MostrarDano(dano,alvo);
+            if (alvo.Vida <= 0) Console.ReadKey();
+        }
+        public void Desarmar(Personagem alvo)
+        {
+            Console.WriteLine($"{Nome} desarmou {alvo.Nome}!");
+            Console.ReadKey();
+            alvo.ArmaEquipada = Arsenal.Punhos;
         }
 
+
+        public bool EstaDesesperado()
+        {
+            return Vida <= VidaTotal * 0.2;
+        }
 }
 }

@@ -18,6 +18,8 @@ namespace SIMULADOR_RPG
             Forca= ForcaBase + ArmaEquipada.BonusForca;
             Magias.Add(FabricaMagias.Criar(TipoMagia.Cura));
             Magias.Add(FabricaMagias.Criar(TipoMagia.Chamas));
+            Magias.Add(FabricaMagias.Criar(TipoMagia.Trovao));
+            Itens.Add(FabricaItens.Criar(TipoItem.PocaoCura));
             
         }
         public override void Atacar(Personagem inimigo)
