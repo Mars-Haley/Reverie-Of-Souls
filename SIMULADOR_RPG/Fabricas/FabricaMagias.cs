@@ -21,7 +21,8 @@ namespace SIMULADOR_RPG.Fabricas
         private static readonly Dictionary<TipoMagia, Func<Magia>> _magias =
             new Dictionary<TipoMagia, Func<Magia>>() 
             {
-                {TipoMagia.Cura,() => new Magia("Cura", new List<IEfeito>{new Cura(30)}) }
+                {TipoMagia.Cura,() => new Magia("Cura", new List<IEfeito>{new Cura(20)},false) },
+                {TipoMagia.Chamas,() => new Magia("Chamas", new List<IEfeito> {new Chama(20)},true)}
             };
     public static Magia Criar(TipoMagia tipo)
     {

@@ -10,11 +10,13 @@ namespace SIMULADOR_RPG.Magias
     {
         public string Nome { get; }
         public List<IEfeito> Efeitos { get; }
+        public bool AlvoEhInimigo {get;}
 
-        public Magia(string nome, List<IEfeito> efeitos)
+        public Magia(string nome, List<IEfeito> efeitos, bool alvoEhInimigo)
         {
             Nome = nome;
             Efeitos = efeitos;
+            AlvoEhInimigo = alvoEhInimigo;
         }
 
         public void Usar(Personagem alvo) 

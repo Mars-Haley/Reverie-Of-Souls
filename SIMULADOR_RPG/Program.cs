@@ -144,8 +144,9 @@ namespace SIMULADOR_RPG
                     nomeMagias.Add(Magia.Nome);
                 }
                 option = Menu("Magias: ", nomeMagias);
-                
-                SelecaoMagia(option, personagem.Magias,personagem);
+                Magia magiaSelecionada = personagem.Magias[option-1];
+                if (magiaSelecionada.AlvoEhInimigo) SelecaoMagia(magiaSelecionada,inimigo);
+                else SelecaoMagia(magiaSelecionada, personagem);
                 inimigo.Atacar(personagem);
                 break;
             }
@@ -155,9 +156,8 @@ namespace SIMULADOR_RPG
                 MenuCombate(personagem, inimigo);
         }
 
-        static void SelecaoMagia(int option, List<Magia> magias, Personagem alvo)
+        static void SelecaoMagia(Magia magiaSelecionada, Personagem alvo)
         {
-            Magia magiaSelecionada = magias[option-1];
             magiaSelecionada.Usar(alvo);
             return;
         }

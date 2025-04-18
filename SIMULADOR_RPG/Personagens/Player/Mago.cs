@@ -17,6 +17,7 @@ namespace SIMULADOR_RPG
             ArmaEquipada = Arsenal.Cajado;
             Forca= ForcaBase + ArmaEquipada.BonusForca;
             Magias.Add(FabricaMagias.Criar(TipoMagia.Cura));
+            Magias.Add(FabricaMagias.Criar(TipoMagia.Chamas));
             
         }
         public override void Atacar(Personagem inimigo)
