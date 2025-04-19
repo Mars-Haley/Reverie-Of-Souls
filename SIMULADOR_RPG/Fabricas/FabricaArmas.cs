@@ -10,7 +10,10 @@ namespace SIMULADOR_RPG
         Cajado,
         Cajado2,
         Arco,
-        Arco2
+        Arco2,
+        Machado,
+        Faca,
+        Gosma
     }
     public static class FabricaArmas 
     {
@@ -23,7 +26,10 @@ namespace SIMULADOR_RPG
                 {TipoArma.Cajado, () => new Arma("Cajado Simples",2)},
                 {TipoArma.Cajado2, () => new Arma("Cajado Ancião",5)},
                 {TipoArma.Arco, () => new Arma("Arco e Flecha Improvisado",4)},
-                {TipoArma.Arco2, () => new Arma("Arco Elegante",15)}
+                {TipoArma.Arco2, () => new Arma("Arco Elegante",15)},
+                {TipoArma.Machado, () => new Arma("Machado", 10)},
+                {TipoArma.Gosma, () => new Arma("Gosma",3)},
+                {TipoArma.Faca, () => new Arma("Faca",5)}
             };
          public static Arma Criar(TipoArma tipo)
            {

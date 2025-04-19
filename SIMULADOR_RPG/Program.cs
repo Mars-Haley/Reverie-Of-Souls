@@ -76,8 +76,7 @@ namespace SIMULADOR_RPG
         #region INÍCIO DO COMBATE
         static void Instanciar(Personagem personagem)
         {
-            Inimigo inimigo = FabricaInimigos.Criar(TipoInimigo.Esqueleto);
-            inimigo.ArmaEquipada = FabricaArmas.Criar(TipoArma.Espada2);
+            Inimigo inimigo = FabricaInimigos.CriarAleatorio();
             MenuCombate(personagem, inimigo);
         }
 
@@ -128,7 +127,7 @@ namespace SIMULADOR_RPG
 
                 case 2:
                     inimigo.ExibirInfo();
-                    Personagem.Digitar(inimigo.Descricao, 40);
+                    Texto.Digitar(inimigo.Descricao, 40);
                     Console.ReadKey();
                     inimigo.Atacar(personagem);
                     break;
@@ -144,7 +143,7 @@ namespace SIMULADOR_RPG
                 if (personagem.Itens.Count >= 1)option = Menu("Itens: ", nomeItens);
                 else
                 {
-                    Personagem.Digitar("Você não possui nenhum item");
+                    Texto.Digitar("Você não possui nenhum item");
                     Console.ReadKey();
                     MenuCombate(personagem,inimigo);
                     return;
@@ -173,7 +172,7 @@ namespace SIMULADOR_RPG
                 if (personagem.Magias.Count >= 1)option = Menu("Skills: ", nomeMagias);
                 else
                 {
-                    Personagem.Digitar("Você não possui nenhuma skill");
+                    Texto.Digitar("Você não possui nenhuma skill");
                     Console.ReadKey();
                     MenuCombate(personagem,inimigo);
                 }

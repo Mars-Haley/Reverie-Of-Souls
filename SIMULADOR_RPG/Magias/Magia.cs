@@ -29,13 +29,13 @@ namespace SIMULADOR_RPG.Magias
             {
                 efeito.Aplicar(alvo);
             }
-            Personagem.Digitar($"{usuario.Nome} usou a magia {Nome}");
+            Texto.Digitar($"{usuario.Nome} usou a magia {Nome}");
             usuario.Mana -= GastoMana;
             Console.ReadKey();
             }
             else
             {
-                Personagem.Digitar($"{usuario.Nome} tentou usar {Nome} mas não tinha mana o suficiente!");
+                Texto.Digitar($"{usuario.Nome} tentou usar {Nome} mas não tinha mana o suficiente!");
                 Console.ReadKey();
             }
         }

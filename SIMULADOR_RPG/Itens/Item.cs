@@ -22,7 +22,7 @@ namespace SIMULADOR_RPG
             {
                 efeito.Aplicar(alvo);
             }
-            Personagem.Digitar($"{usuario.Nome} usou o item {Nome}");
+            Texto.Digitar($"{usuario.Nome} usou o item {Nome}");
             Console.ReadKey();
         }
 	}

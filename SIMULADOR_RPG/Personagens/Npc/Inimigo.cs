@@ -4,13 +4,14 @@ namespace SIMULADOR_RPG
     {
         public string Descricao{get;set;}
 
-        public Inimigo(string nome, double forca, double vida, string descricao):base(nome)
+        public Inimigo(string nome, double forca, double vida, string descricao, Arma armaEquipada):base(nome)
         {
             Forca =forca;
             VidaTotal=vida;
             Vida=VidaTotal;
             Descricao = descricao;
             Itens.Add(FabricaItens.Criar(TipoItem.PocaoCura)); 
+            ArmaEquipada = armaEquipada;
         }
         public override void ExibirInfo()
         {

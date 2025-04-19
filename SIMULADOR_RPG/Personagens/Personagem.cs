@@ -41,15 +41,6 @@ namespace SIMULADOR_RPG
         {
             Vida = Math.Min(Vida + modificador, VidaTotal);
         }
-        public static void Digitar(string texto, int velocidade = 20)
-        {
-            foreach (char c in texto)
-        {
-            Console.Write(c);
-            Thread.Sleep(velocidade); // milissegundos entre letras
-        }
-        Console.WriteLine();
-        }
         public virtual void ExibirInfo()
         {
             Console.WriteLine("");
@@ -74,13 +65,13 @@ namespace SIMULADOR_RPG
             //fim do combate:
             if (baixo.Vida == 0)
             {
-                Digitar($"{topo.Nome} finaliza {baixo.Nome} com {dano:F0} de dano!");
-                Digitar($"{baixo.Nome} morreu!");
+                Texto.Digitar($"{topo.Nome} finaliza {baixo.Nome} com {dano:F0} de dano!");
+                Texto.Digitar($"{baixo.Nome} morreu!");
             }
             else if (topo.Vida == 0)
             {
-                Digitar($"{baixo.Nome} finaliza {topo.Nome} com {dano:F0} de dano!");
-                Digitar($"{topo.Nome} morreu!");
+                Texto.Digitar($"{baixo.Nome} finaliza {topo.Nome} com {dano:F0} de dano!");
+                Texto.Digitar($"{topo.Nome} morreu!");
                 Resultados(topo);
             }
 
@@ -89,7 +80,7 @@ namespace SIMULADOR_RPG
             {
                 baixo.ExibirInfo();
                 Console.SetCursorPosition(0, linhaDoTexto);
-                Digitar(mensagem);
+                Texto.Digitar(mensagem);
             }
         }
         protected virtual void MostrarDano(double dano, Personagem inimigo)
@@ -101,7 +92,7 @@ namespace SIMULADOR_RPG
             double ganhoXp = (inimigo.Forca * inimigo.Nivel) / (Nivel + 1);
             Xp += ganhoXp;
 
-            Digitar($"Você venceu e ganhou {ganhoXp:F2}XP!");
+            Texto.Digitar($"Você venceu e ganhou {ganhoXp:F2}XP!");
 
             if (Xp >= XpTotal)
             {
@@ -109,7 +100,7 @@ namespace SIMULADOR_RPG
                 Xp -= XpTotal;
                 XpTotal = XpTotal * (Nivel +1);
                 int pontosXp = 5;
-                Digitar($"Level Up: Nível {Nivel}");
+                Texto.Digitar($"Level Up: Nível {Nivel}");
                 Console.ReadKey();
                 AtribuirPontosXp(pontosXp);
             }
@@ -148,8 +139,8 @@ namespace SIMULADOR_RPG
                             if (int.TryParse(Console.ReadLine(), out int quantidade) && quantidade > 0 && quantidade <= pontosXp)
                             {
                                 if (option == 1) {VidaTotal += 20 * quantidade;}
-                                else if (option == 2) {ForcaBase += 2 * quantidade; AtualizarForca();}
-                                else ManaTotal += 10 * quantidade;
+                                else if (option == 2) {ForcaBase += 2 * quantidade;}
+                                else if (option == 3) {ManaTotal += 10 * quantidade;}
                                 pontosXp -= quantidade;
                             }
                             else
@@ -157,25 +148,18 @@ namespace SIMULADOR_RPG
                                 Console.WriteLine("Valor inválido.");
                                 Console.ReadKey();
                             }
+                            Restaurar();
                         }
                         break;
                 }
-                AtualizarVida();
-                AtualizarMana();
             }
 
             Console.WriteLine("Todos os pontos foram distribuídos.");
             }
-            protected void AtualizarVida()
+            protected void Restaurar()
             {
                 Vida = VidaTotal;
-            }
-            protected void AtualizarMana()
-            {
                 Mana = ManaTotal;
-            }
-            protected void AtualizarForca()
-            {
                 Forca = ForcaBase + ArmaEquipada.BonusForca;
             }
 
