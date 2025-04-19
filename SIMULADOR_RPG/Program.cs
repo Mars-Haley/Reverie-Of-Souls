@@ -77,7 +77,7 @@ namespace SIMULADOR_RPG
         static void Instanciar(Personagem personagem)
         {
             Inimigo inimigo = FabricaInimigos.Criar(TipoInimigo.Esqueleto);
-            inimigo.ArmaEquipada = Arsenal.Criar(TipoArma.Espada2);
+            inimigo.ArmaEquipada = FabricaArmas.Criar(TipoArma.Espada2);
             MenuCombate(personagem, inimigo);
         }
 
@@ -153,10 +153,11 @@ namespace SIMULADOR_RPG
                 if (itemSelecionado.AlvoEhInimigo)
                 {
                     UsoItem(itemSelecionado,inimigo,personagem);
-                    personagem.Itens.RemoveAt(option);
-                    nomeItens.RemoveAt(option);
                 }
                 else  UsoItem(itemSelecionado, personagem,personagem);
+                
+                personagem.Itens.RemoveAt(option-1);
+                nomeItens.RemoveAt(option-1);
                 inimigo.Atacar(personagem);
                 break;
 

@@ -15,7 +15,7 @@ namespace SIMULADOR_RPG
             ForcaBase = 20;
             ManaTotal = 50;
             Mana = ManaTotal;
-            ArmaEquipada = Arsenal.Criar(TipoArma.Arco);
+            ArmaEquipada = FabricaArmas.Criar(TipoArma.Arco);
             Forca = ForcaBase + ArmaEquipada.BonusForca;
         }
 

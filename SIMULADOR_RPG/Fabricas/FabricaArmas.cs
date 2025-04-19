@@ -12,7 +12,7 @@ namespace SIMULADOR_RPG
         Arco,
         Arco2
     }
-    public static class Arsenal
+    public static class FabricaArmas 
     {
         private static readonly Dictionary<TipoArma, Func<Arma>>_armas =
             new Dictionary<TipoArma, Func<Arma>>()
