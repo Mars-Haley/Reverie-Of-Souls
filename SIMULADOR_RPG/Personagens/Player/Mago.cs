@@ -14,7 +14,7 @@ namespace SIMULADOR_RPG
             VidaTotal = 85;
             Vida=VidaTotal;
             ForcaBase = 15;
-            ArmaEquipada = Arsenal.Cajado;
+            ArmaEquipada = Arsenal.Criar(TipoArma.Cajado);
             ManaTotal = 100;
             Mana = ManaTotal;
             Forca= ForcaBase + ArmaEquipada.BonusForca;

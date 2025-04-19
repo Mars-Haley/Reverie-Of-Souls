@@ -24,7 +24,6 @@ namespace SIMULADOR_RPG
             }
             Personagem.Digitar($"{usuario.Nome} usou o item {Nome}");
             Console.ReadKey();
-
         }
 	}
 	

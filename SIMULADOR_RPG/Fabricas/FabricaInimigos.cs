@@ -18,7 +18,7 @@ public static class FabricaInimigos
         {TipoInimigo.Esqueleto, () => new Inimigo("Esqueleto",13,50,$"Parece já ter sido um aventureiro como eu\nEspero que eu não tenha o mesmo destino")},
         {TipoInimigo.Bandido,() => new Inimigo ("Bandido", 20,60,"Um safado que fez o L")},
         {TipoInimigo.Anão, () => new Inimigo("Anão",30,45,"Asim")},
-        {TipoInimigo.Slime, () => new Inimigo("Slime",20,20,"")}
+        {TipoInimigo.Slime, () => new Inimigo("Slime",20,20,"Created by nilson izaias papinho")}
     };
 
     public static Inimigo Criar(TipoInimigo tipo)

@@ -16,7 +16,7 @@ namespace SIMULADOR_RPG
             ForcaBase = 20.5;
             ManaTotal = 50;
             Mana = ManaTotal;
-            ArmaEquipada = Arsenal.Espada;
+            ArmaEquipada = Arsenal.Criar(TipoArma.Espada);
             Forca= ForcaBase+ ArmaEquipada.BonusForca;
         }
         public override void Atacar(Personagem inimigo)

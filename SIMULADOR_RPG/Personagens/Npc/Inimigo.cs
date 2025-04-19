@@ -79,7 +79,7 @@ namespace SIMULADOR_RPG
         {
             Console.WriteLine($"{Nome} desarmou {alvo.Nome}!");
             Console.ReadKey();
-            alvo.ArmaEquipada = Arsenal.Punhos;
+            alvo.ArmaEquipada = Arsenal.Criar(TipoArma.Punhos);
         }
 
 
