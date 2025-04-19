@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +16,7 @@ namespace SIMULADOR_RPG
         private static readonly Dictionary<TipoItem, Func<Item>> _itens = 
             new Dictionary<TipoItem, Func<Item>>()
             {
-                {TipoItem.PocaoCura, () => new Item(new List<IEfeito>{new Cura(10)},"Poção de Cura",false) }
+                {TipoItem.PocaoCura, () => new Item(new List<IEfeito>{new Cura(10)},"Poção de Cura",false, true) }
             };
 
     public static Item Criar(TipoItem tipo)

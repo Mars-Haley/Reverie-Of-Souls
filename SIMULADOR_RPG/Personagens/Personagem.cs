@@ -20,6 +20,7 @@ namespace SIMULADOR_RPG
         public double Xp{get;set;}
         public double XpTotal{get;set;}
         public double Mana{get;set;}
+        public double ManaTotal{get;set;}
         public Arma ArmaEquipada{get;set;}
         public List<Magia> Magias{get;set;} = new List<Magia>();
         public List<Item> Itens{get;set;} = new List<Item>();
@@ -52,7 +53,7 @@ namespace SIMULADOR_RPG
         public virtual void ExibirInfo()
         {
             Console.WriteLine("");
-            Console.WriteLine($"{Nome} {Vida:F0}/{VidaTotal}HP | Nível: {Nivel}\n {Xp:F2}/{XpTotal:F2}XP");
+            Console.WriteLine($"{Nome} {Vida:F0}/{VidaTotal}HP | Nível: {Nivel}\n {Xp:F2}/{XpTotal:F2}XP\n Mana: {Mana}/ {ManaTotal}");
             Console.WriteLine("\n");
         }
         
@@ -118,7 +119,7 @@ namespace SIMULADOR_RPG
         protected void AtribuirPontosXp(int pontosXp)
         {
             int option = 1;
-            string[] opcoes = { "Vida", "Força", "Confirmar e sair" };
+            string[] opcoes = { "Vida", "Força","Mana", "Confirmar e sair" };
     
             while (pontosXp > 0)
             {
@@ -139,7 +140,7 @@ namespace SIMULADOR_RPG
                         if (option < opcoes.Length) option++;
                         break;
                     case ConsoleKey.Enter:
-                        if (option == 3) return; // Sai do menu
+                        if (option == 4) return; // Sai do menu
                         else
                         {
                             Console.WriteLine($"\nQuantos pontos deseja aplicar em {opcoes[option - 1]}?");
@@ -148,7 +149,7 @@ namespace SIMULADOR_RPG
                             {
                                 if (option == 1) {VidaTotal += 20 * quantidade;}
                                 else if (option == 2) {ForcaBase += 2 * quantidade; AtualizarForca();}
-
+                                else ManaTotal += 10 * quantidade;
                                 pontosXp -= quantidade;
                             }
                             else
@@ -160,13 +161,18 @@ namespace SIMULADOR_RPG
                         break;
                 }
                 AtualizarVida();
+                AtualizarMana();
             }
 
             Console.WriteLine("Todos os pontos foram distribuídos.");
             }
             protected void AtualizarVida()
-                {
+            {
                 Vida = VidaTotal;
+            }
+            protected void AtualizarMana()
+            {
+                Mana = ManaTotal;
             }
             protected void AtualizarForca()
             {

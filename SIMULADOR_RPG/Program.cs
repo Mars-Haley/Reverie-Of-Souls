@@ -129,8 +129,8 @@ namespace SIMULADOR_RPG
                 case 2:
                     inimigo.ExibirInfo();
                     Personagem.Digitar(inimigo.Descricao, 40);
-                    inimigo.Atacar(personagem);
                     Console.ReadKey();
+                    inimigo.Atacar(personagem);
                     break;
 
                 case 3: 
@@ -139,11 +139,24 @@ namespace SIMULADOR_RPG
                 foreach(var Item in personagem.Itens)
                 {
                     nomeItens.Add(Item.Nome);
+                    
                 }
-                option = Menu("Itens: ",nomeItens);
+                if (personagem.Itens.Count >= 1)option = Menu("Itens: ", nomeItens);
+                else
+                {
+                    Personagem.Digitar("Você não possui nenhum item");
+                    Console.ReadKey();
+                    MenuCombate(personagem,inimigo);
+                    return;
+                }
                 Item itemSelecionado = personagem.Itens[option-1];
-                if (itemSelecionado.AlvoEhInimigo) UsoItem(itemSelecionado,inimigo,personagem);
-                else UsoItem(itemSelecionado, personagem,personagem);
+                if (itemSelecionado.AlvoEhInimigo)
+                {
+                    UsoItem(itemSelecionado,inimigo,personagem);
+                    personagem.Itens.RemoveAt(option-1);
+                    nomeItens.RemoveAt(option-1);
+                }
+                else  UsoItem(itemSelecionado, personagem,personagem);
                 inimigo.Atacar(personagem);
                 break;
 
@@ -156,7 +169,13 @@ namespace SIMULADOR_RPG
                 {
                     nomeMagias.Add(Magia.Nome);
                 }
-                option = Menu("Magias: ", nomeMagias);
+                if (personagem.Magias.Count >= 1)option = Menu("Skills: ", nomeMagias);
+                else
+                {
+                    Personagem.Digitar("Você não possui nenhuma skill");
+                    Console.ReadKey();
+                    MenuCombate(personagem,inimigo);
+                }
                 Magia magiaSelecionada = personagem.Magias[option-1];
                 if (magiaSelecionada.AlvoEhInimigo) UsoMagia(magiaSelecionada,inimigo, personagem);
                 else UsoMagia(magiaSelecionada, personagem, personagem);

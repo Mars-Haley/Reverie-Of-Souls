@@ -13,6 +13,8 @@ namespace SIMULADOR_RPG
             VidaTotal = 80;
             Vida=VidaTotal;
             ForcaBase = 20;
+            ManaTotal = 50;
+            Mana = ManaTotal;
             ArmaEquipada = Arsenal.Arco;
             Forca = ForcaBase + ArmaEquipada.BonusForca;
         }

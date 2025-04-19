@@ -11,23 +11,33 @@ namespace SIMULADOR_RPG.Magias
         public string Nome { get; }
         public List<IEfeito> Efeitos { get; }
         public bool AlvoEhInimigo {get;}
+        public double GastoMana {get;}
 
-        public Magia(string nome, List<IEfeito> efeitos, bool alvoEhInimigo)
+        public Magia(string nome, List<IEfeito> efeitos, bool alvoEhInimigo, double gastoMana)
         {
             Nome = nome;
             Efeitos = efeitos;
             AlvoEhInimigo = alvoEhInimigo;
+            GastoMana = gastoMana;
         }
 
         public void Usar(Personagem usuario,Personagem alvo) 
         {
+            if (usuario.Mana < 0) usuario.Mana = 0;
+            if(usuario.Mana - GastoMana >= 0){
             foreach (var efeito in Efeitos) 
             {
                 efeito.Aplicar(alvo);
             }
             Personagem.Digitar($"{usuario.Nome} usou a magia {Nome}");
+            usuario.Mana -= GastoMana;
             Console.ReadKey();
-
+            }
+            else
+            {
+                Personagem.Digitar($"{usuario.Nome} tentou usar {Nome} mas não tinha mana o suficiente!");
+                Console.ReadKey();
+            }
         }
     }
 }

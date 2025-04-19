@@ -68,6 +68,8 @@ namespace SIMULADOR_RPG
         }
         public void AtacarDesesperado(Personagem alvo)
         {
+            Console.Clear();
+            Console.WriteLine($"{Nome} ataca desesperadamente!");
             double dano = (0.9 + rand.NextDouble() * 0.5) * Forca * Nivel;
             alvo.ReceberDano(dano);
             MostrarDano(dano,alvo);

@@ -15,6 +15,8 @@ namespace SIMULADOR_RPG
             Vida=VidaTotal;
             ForcaBase = 15;
             ArmaEquipada = Arsenal.Cajado;
+            ManaTotal = 100;
+            Mana = ManaTotal;
             Forca= ForcaBase + ArmaEquipada.BonusForca;
             Magias.Add(FabricaMagias.Criar(TipoMagia.Cura));
             Magias.Add(FabricaMagias.Criar(TipoMagia.Chamas));
