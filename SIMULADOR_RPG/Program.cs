@@ -185,6 +185,13 @@ namespace SIMULADOR_RPG
 
             if (personagem.Vida > 0 && inimigo.Vida > 0)
                 MenuCombate(personagem, inimigo);
+            else if(inimigo.Vida <= 0 && personagem.Vida >0)
+            {
+                personagem.Resultados(inimigo);
+                if(personagem.Xp > personagem.XpTotal)
+                    Instanciar(personagem);
+
+            }
         }
         static void UsoMagia(Magia magiaSelecionada, Personagem alvo, Personagem usuario)
         {

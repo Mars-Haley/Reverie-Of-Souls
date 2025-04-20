@@ -72,7 +72,6 @@ namespace SIMULADOR_RPG
             {
                 Texto.Digitar($"{baixo.Nome} finaliza {topo.Nome} com {dano:F0} de dano!");
                 Texto.Digitar($"{topo.Nome} morreu!");
-                Resultados(topo);
             }
 
             //combate ainda ocorrendo:
@@ -87,12 +86,13 @@ namespace SIMULADOR_RPG
         {
             MostrarDanoFormatado(dano, inimigo, this, $"{Nome} ataca {inimigo.Nome} com {ArmaEquipada.Nome} causando {dano:F0} de dano!");
         }
-        protected void Resultados(Personagem inimigo)
+        public void Resultados(Personagem inimigo)
         {
             double ganhoXp = (inimigo.Forca * inimigo.Nivel) / (Nivel + 1);
             Xp += ganhoXp;
 
             Texto.Digitar($"Você venceu e ganhou {ganhoXp:F2}XP!");
+            Console.ReadKey();
 
             if (Xp >= XpTotal)
             {
@@ -103,6 +103,7 @@ namespace SIMULADOR_RPG
                 Texto.Digitar($"Level Up: Nível {Nivel}");
                 Console.ReadKey();
                 AtribuirPontosXp(pontosXp);
+                Restaurar();
             }
 
 
