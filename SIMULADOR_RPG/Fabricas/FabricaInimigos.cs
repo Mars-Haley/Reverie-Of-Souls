@@ -6,7 +6,9 @@ public enum TipoInimigo
     Esqueleto,
     Bandido,
     Anão,
-    Slime
+    Slime,
+    Goblin,
+    Ogro
 }
 
 public static class FabricaInimigos

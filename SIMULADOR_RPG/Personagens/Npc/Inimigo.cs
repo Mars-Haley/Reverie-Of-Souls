@@ -32,7 +32,7 @@ namespace SIMULADOR_RPG
         public override void Atacar(Personagem alvo)
         {
             int chance = rand.Next(1,3);
-            if(EstaDesesperado() && chance ==2 )
+            if(EstaDesesperado() && chance ==2 && Vida != 0)
             {
                 AcoesDesesperado(alvo);
             }
