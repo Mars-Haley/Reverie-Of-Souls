@@ -24,6 +24,7 @@ namespace SIMULADOR_RPG
         public Arma ArmaEquipada{get;set;}
         public List<Magia> Magias{get;set;} = new List<Magia>();
         public List<Item> Itens{get;set;} = new List<Item>();
+        public int Ouro{get;set;}
         protected Random rand;
   
 
@@ -33,6 +34,7 @@ namespace SIMULADOR_RPG
             Nome = nome;
             Nivel = 1;
             rand = new Random();
+            Ouro = 0;
             Xp = 0;
             XpTotal = 10;
         }
@@ -44,7 +46,7 @@ namespace SIMULADOR_RPG
         public virtual void ExibirInfo()
         {
             Console.WriteLine("");
-            Console.WriteLine($"{Nome} {Vida:F0}/{VidaTotal}HP | Nível: {Nivel}\n {Xp:F2}/{XpTotal:F2}XP\n Mana: {Mana}/ {ManaTotal}");
+            Console.WriteLine($"{Nome} {Vida:F0}/{VidaTotal}HP | Nível: {Nivel}\n {Xp:F2}/{XpTotal:F2}XP\n Mana: {Mana}/ {ManaTotal}\n Ouro:{Ouro}");
             Console.WriteLine("\n");
         }
         
@@ -90,8 +92,10 @@ namespace SIMULADOR_RPG
         {
             double ganhoXp = (inimigo.Forca * inimigo.Nivel) / (Nivel + 1);
             Xp += ganhoXp;
+            int ganhoOuro = ((int)inimigo.Forca * inimigo.Nivel) / (Nivel);
+            Ouro += ganhoOuro;
 
-            Texto.Digitar($"Você venceu e ganhou {ganhoXp:F2}XP!");
+            Texto.Digitar($"Você venceu e ganhou {ganhoXp:F2}XP e {ganhoOuro} de ouro!");
             Console.ReadKey();
 
             if (Xp >= XpTotal)

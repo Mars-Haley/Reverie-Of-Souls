@@ -8,7 +8,8 @@ namespace SIMULADOR_RPG
 {
     public enum TipoItem 
     {
-        PocaoCura
+        PocaoCura,
+        PocaoMana
     }
 
     public class FabricaItens
@@ -16,7 +17,8 @@ namespace SIMULADOR_RPG
         private static readonly Dictionary<TipoItem, Func<Item>> _itens = 
             new Dictionary<TipoItem, Func<Item>>()
             {
-                {TipoItem.PocaoCura, () => new Item(new List<IEfeito>{new Cura(10)},"Poção de Cura",false, true) }
+                {TipoItem.PocaoCura, () => new Item(new List<IEfeito>{new Cura(10)},"Poção de Cura",false, true) },
+                {TipoItem.PocaoMana, () => new Item(new List<IEfeito>{new RecuperarMana(20)},"Poção de mana",false,true)}
             };
 
     public static Item Criar(TipoItem tipo)

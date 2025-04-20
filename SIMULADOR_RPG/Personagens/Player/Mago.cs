@@ -22,6 +22,7 @@ namespace SIMULADOR_RPG
             Magias.Add(FabricaMagias.Criar(TipoMagia.Chamas));
             Magias.Add(FabricaMagias.Criar(TipoMagia.Trovao));
             Itens.Add(FabricaItens.Criar(TipoItem.PocaoCura));
+            Itens.Add(FabricaItens.Criar(TipoItem.PocaoMana));
         }
         public override void Atacar(Personagem inimigo)
         {
