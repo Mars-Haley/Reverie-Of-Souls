@@ -138,7 +138,6 @@ namespace SIMULADOR_RPG
                 foreach(var Item in personagem.Itens)
                 {
                     nomeItens.Add(Item.Nome);
-                    
                 }
                 if (personagem.Itens.Count >= 1)option = Menu("Itens: ", nomeItens);
                 else
@@ -187,7 +186,6 @@ namespace SIMULADOR_RPG
             if (personagem.Vida > 0 && inimigo.Vida > 0)
                 MenuCombate(personagem, inimigo);
         }
-
         static void UsoMagia(Magia magiaSelecionada, Personagem alvo, Personagem usuario)
         {
             magiaSelecionada.Usar(usuario,alvo);
