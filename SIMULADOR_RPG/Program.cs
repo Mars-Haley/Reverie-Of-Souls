@@ -20,7 +20,6 @@ namespace SIMULADOR_RPG
             List<string> opcoes = new List<string>{ "Guerreiro", "Mago", "Arqueiro" };
             int option = Menu("Escolha sua classe: ", opcoes);
             
-
             SelecaoClasse(option, personagens);
         }
 
