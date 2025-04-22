@@ -102,7 +102,7 @@ namespace SIMULADOR_RPG
             {
                 Nivel++;
                 Xp -= XpTotal;
-                XpTotal = XpTotal * (Nivel +1);
+                XpTotal = XpTotal * (Nivel);
                 int pontosXp = 5;
                 Texto.Digitar($"Level Up: Nível {Nivel}");
                 Console.ReadKey();
@@ -112,10 +112,18 @@ namespace SIMULADOR_RPG
 
 
         }
+        protected void UparArcana ()
+        {
+            foreach(var m in Magias){
+                foreach(var e in m.Efeitos){
+                   e.Modificador += 3; 
+                }
+            }
+        }
         protected void AtribuirPontosXp(int pontosXp)
         {
             int option = 1;
-            string[] opcoes = { "Vida", "Força","Mana", "Confirmar e sair" };
+            string[] opcoes = { "Vida", "Força","Mana","Arcano", "Confirmar e sair" };
     
             while (pontosXp > 0)
             {
@@ -136,7 +144,7 @@ namespace SIMULADOR_RPG
                         if (option < opcoes.Length) option++;
                         break;
                     case ConsoleKey.Enter:
-                        if (option == 4) return; // Sai do menu
+                        if (option == 5) return; // Sai do menu
                         else
                         {
                             Console.WriteLine($"\nQuantos pontos deseja aplicar em {opcoes[option - 1]}?");
@@ -146,6 +154,7 @@ namespace SIMULADOR_RPG
                                 if (option == 1) {VidaTotal += 20 * quantidade;}
                                 else if (option == 2) {ForcaBase += 2 * quantidade;}
                                 else if (option == 3) {ManaTotal += 10 * quantidade;}
+                                else if (option == 4){UparArcana();}
                                 pontosXp -= quantidade;
                             }
                             else

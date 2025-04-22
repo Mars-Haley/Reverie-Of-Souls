@@ -8,10 +8,8 @@ namespace SIMULADOR_RPG
 {
     public class RecuperarMana : Efeito
     {
-        public double Modificador { get;}
-        public RecuperarMana(double modificador)
+        public RecuperarMana(double modificador):base(modificador)
         {
-            Modificador = modificador;
         }
         public override void Aplicar(Personagem alvo)
         {

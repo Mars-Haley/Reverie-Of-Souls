@@ -138,6 +138,7 @@ namespace SIMULADOR_RPG
                 {
                     nomeItens.Add(Item.Nome);
                 }
+                nomeItens.Add("<- Voltar");
                 if (personagem.Itens.Count >= 1)option = Menu("Itens: ", nomeItens);
                 else
                 {
@@ -146,6 +147,11 @@ namespace SIMULADOR_RPG
                     MenuCombate(personagem,inimigo);
                     return;
                 }
+                if (option == nomeItens.Count){
+                    MenuCombate(personagem,inimigo);
+                    return;
+                }
+                else{
                 Item itemSelecionado = personagem.Itens[option-1];
                 if (itemSelecionado.AlvoEhInimigo)
                 {
@@ -156,6 +162,7 @@ namespace SIMULADOR_RPG
                 personagem.Itens.RemoveAt(option-1);
                 nomeItens.RemoveAt(option-1);
                 inimigo.Atacar(personagem);
+                }
                 break;
 
                 
@@ -167,18 +174,28 @@ namespace SIMULADOR_RPG
                 {
                     nomeMagias.Add(Magia.Nome);
                 }
+                nomeMagias.Add("<- Voltar");
                 if (personagem.Magias.Count >= 1)option = Menu("Skills: ", nomeMagias);
                 else
                 {
                     Texto.Digitar("Você não possui nenhuma skill");
                     Console.ReadKey();
                     MenuCombate(personagem,inimigo);
+                    return;
                 }
+                if (option == nomeMagias.Count)
+                {
+                    MenuCombate(personagem,inimigo);
+                    return;
+                }
+                else{
                 Magia magiaSelecionada = personagem.Magias[option-1];
                 if (magiaSelecionada.AlvoEhInimigo) UsoMagia(magiaSelecionada,inimigo, personagem);
                 else UsoMagia(magiaSelecionada, personagem, personagem);
                 inimigo.Atacar(personagem);
+                }
                 break;
+                
             }
            
 

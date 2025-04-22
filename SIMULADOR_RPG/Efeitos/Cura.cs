@@ -8,10 +8,8 @@ namespace SIMULADOR_RPG
 {
     public class Cura : Efeito
     {
-        public double Modificador { get;}
-        public Cura(double modificador)
+        public Cura(double modificador) : base (modificador)
         {
-            Modificador = modificador;
         }
         public override void Aplicar(Personagem alvo)
         {

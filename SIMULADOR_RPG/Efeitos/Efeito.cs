@@ -8,6 +8,11 @@ namespace SIMULADOR_RPG
 {
     public abstract class Efeito : IEfeito
     {
+        public double Modificador{get;set;}
         public abstract void Aplicar(Personagem alvo);
+        public Efeito(double modificador)
+        {
+            Modificador = modificador;
+        }
     }
 }

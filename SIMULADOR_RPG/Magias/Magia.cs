@@ -9,16 +9,18 @@ namespace SIMULADOR_RPG.Magias
     public class Magia
     {
         public string Nome { get; }
-        public List<IEfeito> Efeitos { get; }
+        public List<Efeito> Efeitos { get; }
         public bool AlvoEhInimigo {get;}
         public double GastoMana {get;}
+        public string Descricao {get;}
 
-        public Magia(string nome, List<IEfeito> efeitos, bool alvoEhInimigo, double gastoMana)
+        public Magia(string nome, List<Efeito> efeitos, bool alvoEhInimigo, double gastoMana)
         {
             Nome = nome;
             Efeitos = efeitos;
             AlvoEhInimigo = alvoEhInimigo;
             GastoMana = gastoMana;
+            Descricao = $"Gasto de mana: {gastoMana}";
         }
 
         public void Usar(Personagem usuario,Personagem alvo) 

@@ -13,7 +13,7 @@ namespace SIMULADOR_RPG
         {
             VidaTotal = 85;
             Vida=VidaTotal;
-            ForcaBase = 15;
+            ForcaBase = 5;
             ArmaEquipada = FabricaArmas.Criar(TipoArma.Cajado);
             ManaTotal = 100;
             Mana = ManaTotal;
