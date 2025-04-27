@@ -5,7 +5,7 @@ using System.Net.Mail;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using SIMULADOR_RPG.Magias;
+using SIMULADOR_RPG.Skills;
 
 namespace SIMULADOR_RPG
 {
@@ -22,7 +22,7 @@ namespace SIMULADOR_RPG
         public double Mana{get;set;}
         public double ManaTotal{get;set;}
         public Arma ArmaEquipada{get;set;}
-        public List<Magia> Magias{get;set;} = new List<Magia>();
+        public List<Skill> Skills{get;set;} = new List<Skill>();
         public List<Item> Itens{get;set;} = new List<Item>();
         public int Ouro{get;set;}
         protected Random rand;
@@ -114,7 +114,7 @@ namespace SIMULADOR_RPG
         }
         protected void UparArcana ()
         {
-            foreach(var m in Magias){
+            foreach(var m in Skills){
                 foreach(var e in m.Efeitos){
                    e.Modificador += 3; 
                 }

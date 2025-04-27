@@ -17,12 +17,12 @@ public static class FabricaInimigos
     private static readonly Dictionary<TipoInimigo, Func<Inimigo>> _inimigos = 
     new Dictionary<TipoInimigo, Func<Inimigo>>()
     {
-        {TipoInimigo.Esqueleto, () => new Inimigo("Esqueleto",13,50,$"Parece já ter sido um aventureiro como eu\nEspero que eu não tenha o mesmo destino",FabricaArmas.Criar(TipoArma.Espada2))},
-        {TipoInimigo.Bandido,() => new Inimigo ("Bandido", 20,60,"Um safado que fez o L",FabricaArmas.Criar(TipoArma.Faca))},
-        {TipoInimigo.Anão, () => new Inimigo("Anão",15,45,"Asim", FabricaArmas.Criar(TipoArma.Machado))},
-        {TipoInimigo.Slime, () => new Inimigo("Slime",20,20,"Created by nilson izaias papinho",FabricaArmas.Criar(TipoArma.Gosma))},
-        {TipoInimigo.Goblin, () => new Inimigo("Goblin",25,40,"mini arrombadinho",FabricaArmas.Criar(TipoArma.Faca))},
-        {TipoInimigo.Ogro, () => new Inimigo("Ogro",30,60,"grande arrombadão",FabricaArmas.Criar(TipoArma.Machado))}
+        {TipoInimigo.Esqueleto, () => new Inimigo("Esqueleto",8,50,$"Parece já ter sido um aventureiro como eu\nEspero que eu não tenha o mesmo destino",FabricaArmas.Criar(TipoArma.Espada2))},
+        {TipoInimigo.Bandido,() => new Inimigo ("Bandido", 10,60,"Um safado que fez o L",FabricaArmas.Criar(TipoArma.Faca))},
+        {TipoInimigo.Anão, () => new Inimigo("Anão",7,45,"Asim", FabricaArmas.Criar(TipoArma.Machado))},
+        {TipoInimigo.Slime, () => new Inimigo("Slime",4,20,"Created by nilson izaias papinho",FabricaArmas.Criar(TipoArma.Gosma))},
+        {TipoInimigo.Goblin, () => new Inimigo("Goblin",5,40,"mini arrombadinho",FabricaArmas.Criar(TipoArma.Faca))},
+        {TipoInimigo.Ogro, () => new Inimigo("Ogro",13,60,"grande arrombadão",FabricaArmas.Criar(TipoArma.Machado))}
     };
 
     public static Inimigo Criar(TipoInimigo tipo)

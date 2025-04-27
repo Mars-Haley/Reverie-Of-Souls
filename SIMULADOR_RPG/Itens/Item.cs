@@ -4,12 +4,12 @@ namespace SIMULADOR_RPG
 {
 	public class Item
 	{
-		public List<IEfeito>Efeitos {get;}
+		public List<Efeito>Efeitos {get;}
 		public string Nome{get;}
 		public bool AlvoEhInimigo{get;}
         public bool EhEmpilhavel{get;}
 
-		public Item(List<IEfeito>efeitos, string nome, bool alvoEhInimigo, bool ehEmpilhavel)
+		public Item(List<Efeito>efeitos, string nome, bool alvoEhInimigo, bool ehEmpilhavel)
 		{	
 			Efeitos = efeitos;
 			Nome = nome;

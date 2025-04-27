@@ -10,6 +10,7 @@ namespace SIMULADOR_RPG
     {
         public DanoDireto(double modificador) :base(modificador)
         {
+            Modificador = modificador;
         }
         public override void Aplicar(Personagem alvo)
         {

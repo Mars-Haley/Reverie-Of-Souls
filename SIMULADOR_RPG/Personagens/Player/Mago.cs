@@ -18,9 +18,9 @@ namespace SIMULADOR_RPG
             ManaTotal = 100;
             Mana = ManaTotal;
             Forca= ForcaBase + ArmaEquipada.BonusForca;
-            Magias.Add(FabricaMagias.Criar(TipoMagia.Cura));
-            Magias.Add(FabricaMagias.Criar(TipoMagia.Chamas));
-            Magias.Add(FabricaMagias.Criar(TipoMagia.Trovao));
+            Skills.Add(FabricaSkills.Criar(TipoSkill.Cura));
+            Skills.Add(FabricaSkills.Criar(TipoSkill.Chamas));
+            Skills.Add(FabricaSkills.Criar(TipoSkill.Trovao));
             Itens.Add(FabricaItens.Criar(TipoItem.PocaoCura));
             Itens.Add(FabricaItens.Criar(TipoItem.PocaoMana));
         }

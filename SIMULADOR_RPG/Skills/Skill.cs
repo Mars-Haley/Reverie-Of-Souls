@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SIMULADOR_RPG.Magias
+namespace SIMULADOR_RPG.Skills
 {
-    public class Magia
+    public class Skill
     {
         public string Nome { get; }
         public List<Efeito> Efeitos { get; }
@@ -14,7 +14,7 @@ namespace SIMULADOR_RPG.Magias
         public double GastoMana {get;}
         public string Descricao {get;}
 
-        public Magia(string nome, List<Efeito> efeitos, bool alvoEhInimigo, double gastoMana)
+        public Skill(string nome, List<Efeito> efeitos, bool alvoEhInimigo, double gastoMana)
         {
             Nome = nome;
             Efeitos = efeitos;
@@ -22,6 +22,7 @@ namespace SIMULADOR_RPG.Magias
             GastoMana = gastoMana;
             Descricao = $"Gasto de mana: {gastoMana}";
         }
+        double modificador;
 
         public void Usar(Personagem usuario,Personagem alvo) 
         {
@@ -30,6 +31,7 @@ namespace SIMULADOR_RPG.Magias
             foreach (var efeito in Efeitos) 
             {
                 efeito.Aplicar(alvo);
+                modificador+= efeito.Modificador;
             }
             Texto.Digitar($"{usuario.Nome} usou a magia {Nome}");
             usuario.Mana -= GastoMana;

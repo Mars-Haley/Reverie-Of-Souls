@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using SIMULADOR_RPG.Magias;
+using SIMULADOR_RPG.Skills;
 
 namespace SIMULADOR_RPG
 {
@@ -167,15 +167,15 @@ namespace SIMULADOR_RPG
 
                 
                 case 4:
-                List<string> nomeMagias = new List<string>();
+                List<string> nomeSkills = new List<string>();
                 
 
-                foreach(var Magia in personagem.Magias)
+                foreach(var Skill in personagem.Skills)
                 {
-                    nomeMagias.Add(Magia.Nome);
+                    nomeSkills.Add((string)Skill.Nome);
                 }
-                nomeMagias.Add("<- Voltar");
-                if (personagem.Magias.Count >= 1)option = Menu("Skills: ", nomeMagias);
+                nomeSkills.Add("<- Voltar");
+                if (personagem.Skills.Count >= 1)option = Menu("Skills: ", nomeSkills);
                 else
                 {
                     Texto.Digitar("Você não possui nenhuma skill");
@@ -183,13 +183,13 @@ namespace SIMULADOR_RPG
                     MenuCombate(personagem,inimigo);
                     return;
                 }
-                if (option == nomeMagias.Count)
+                if (option == nomeSkills.Count)
                 {
                     MenuCombate(personagem,inimigo);
                     return;
                 }
                 else{
-                Magia magiaSelecionada = personagem.Magias[option-1];
+                Skill magiaSelecionada = personagem.Skills[option-1];
                 if (magiaSelecionada.AlvoEhInimigo) UsoMagia(magiaSelecionada,inimigo, personagem);
                 else UsoMagia(magiaSelecionada, personagem, personagem);
                 inimigo.Atacar(personagem);
@@ -209,7 +209,7 @@ namespace SIMULADOR_RPG
 
             }
         }
-        static void UsoMagia(Magia magiaSelecionada, Personagem alvo, Personagem usuario)
+        static void UsoMagia(Skill magiaSelecionada, Personagem alvo, Personagem usuario)
         {
             magiaSelecionada.Usar(usuario,alvo);
         }
